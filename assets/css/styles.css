@@ -1,0 +1,58 @@
+/* Extracted styles from index.html */
+:root{
+    --bg:#f4faf5;
+    --text:#1d2a22;
+    --muted:#607268;
+    --accent:#3d6b4f;
+    --accent-soft:#a9d0b0;
+    --surface:#ffffff;
+    --glass: rgba(11,30,22,0.94);
+}
+body{
+    font-family: 'Inter', sans-serif;
+    background-color:var(--bg);
+    color:var(--text);
+}
+h1,h2,h3,h4,.font-serif{font-family:'Playfair Display',serif}
+.glass-nav{background:rgba(7,12,27,0.94);backdrop-filter:blur(16px)}
+.view-section{display:none;opacity:0;transition:opacity .4s ease-in-out}
+.view-section.active{display:block;opacity:1}
+/* Custom scrollbar */
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:#070c1b}
+::-webkit-scrollbar-thumb{background:var(--accent);border-radius:4px}
+
+/* Footer small screens spacing helper */
+@media (max-width:1280px){
+    .max-w-7xl{padding-left:1rem;padding-right:1rem}
+}
+
+/* Accessibility and focus styles */
+.skip-link{
+    position:fixed;left:1rem;top:1rem;background:var(--surface);color:var(--text);padding:.5rem .75rem;border-radius:.375rem;z-index:60;transform:translateY(-120%);transition:transform .18s ease;box-shadow:0 6px 18px rgba(11,19,41,.12);
+}
+.skip-link:focus{transform:translateY(0);outline:3px solid var(--accent)}
+
+/* Mature color adjustments for headings and sections */
+.mature-heading{color:#0f1724} /* deep slate */
+.mature-section-text{color:#1f2937} /* softer charcoal */
+.mature-hero{color:#f3efe7} /* warm off-white for dark hero backgrounds */
+.text-muted{color:var(--muted)}
+
+.btn-primary{background:linear-gradient(90deg,var(--accent),#4aa47a);color:#071026;padding:.75rem 1rem;border-radius:12px;font-weight:600}
+.btn-primary:focus{outline:3px solid rgba(111,194,153,.25)}
+
+/* Footer */
+footer.global-footer{background:linear-gradient(180deg,#071026 0%, #0b1329 100%);color:#d1d5db;padding:3rem 1rem}
+footer.global-footer a{color:var(--accent)}
+footer .social a{margin-right:.5rem;color:#c7c7c7}
+
+/* Back to top */
+#back-to-top{position:fixed;right:1rem;bottom:1rem;background:var(--accent);color:#071026;width:44px;height:44px;border-radius:9999px;display:grid;place-items:center;transform:translateY(12px);opacity:0;transition:all .28s ease-in-out;box-shadow:0 8px 24px rgba(11,19,41,.18);z-index:60}
+#back-to-top.show{transform:translateY(0);opacity:1}
+
+.testimony-snippet{color:var(--muted)}
+
+/* Make share buttons wrap nicely on small screens */
+.share-button-row{display:flex;flex-wrap:wrap;gap:0.5rem}
+.share-button-row button{flex:0 0 auto}

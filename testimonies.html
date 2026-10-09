@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Testimonies — Transformation Network</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        midnight: { 900: '#112f24', 950: '#0b1e16' },
+                        charcoal: { 800: '#1d2a22', 900: '#14231b' },
+                        sage: { 300: '#d7eadc', 400: '#a9d0b0', 500: '#5f8f6d', 600: '#3d6b4f' },
+                        stoneBg: { 50: '#f4faf5', 100: '#ebf3ed', 200: '#dfe9e1' }
+                    },
+                    fontFamily: { serif: ['Playfair Display', 'serif'], sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="bg-stoneBg-50 text-charcoal-800">
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-white/10 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
+            <a href="home.html" class="flex items-center space-x-3.5 group"><div class="w-11 h-11 rounded-full bg-gradient-to-tr from-sage-600 to-sage-400 flex items-center justify-center text-midnight-950 font-serif font-bold text-xl">TN</div><div><span class="block font-serif text-lg tracking-wider font-bold text-white">TRANSFORMATION</span><span class="block text-[10px] uppercase tracking-[0.25em] text-sage-400">Network</span></div></a>
+            <nav class="hidden xl:flex items-center space-x-7 text-sm font-medium tracking-wide">
+                <a href="home.html" class="text-gray-300 hover:text-sage-400">Home</a>
+                <a href="about.html" class="text-gray-300 hover:text-sage-400">About Us</a>
+                <a href="sermons.html" class="text-gray-300 hover:text-sage-400">Sermons</a>
+                <a href="testimonies.html" class="text-sage-400">Testimonies</a>
+                <a href="prayer.html" class="text-gray-300 hover:text-sage-400">Prayer</a>
+                <a href="events.html" class="text-gray-300 hover:text-sage-400">Events</a>
+                <a href="contact.html" class="text-gray-300 hover:text-sage-400">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <section class="bg-midnight-950 mature-hero py-24 text-center">
+            <div class="max-w-4xl mx-auto px-4">
+                <span class="text-sage-600 text-xs font-semibold uppercase tracking-[0.25em]">God at Work</span>
+                <h1 class="font-serif mature-heading text-4xl sm:text-6xl font-bold mt-3">Testimonies of Grace</h1>
+                <p class="mature-section-text mt-4 max-w-2xl mx-auto text-lg font-light">Read inspiring accounts of transformation and share what God has done in your life.</p>
+            </div>
+        </section>
+
+        <section class="py-24 bg-stoneBg-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="bg-midnight-950 mature-hero p-8 md:p-14 rounded-3xl mb-16 flex flex-col md:flex-row justify-between items-center gap-8 shadow-2xl relative overflow-hidden border border-white/10">
+                    <div class="relative z-10 max-w-2xl">
+                        <h3 class="font-serif text-2xl sm:text-4xl font-bold">Has God Done Something Wonderful For You?</h3>
+                        <p class="text-gray-300 text-sm sm:text-base mt-3 leading-relaxed">"And they overcame him by the blood of the Lamb and by the word of their testimony." — Revelation 12:11</p>
+                    </div>
+                    <button onclick="openTestimonyModal()" class="relative z-10 bg-sage-500 hover:bg-sage-400 text-midnight-950 font-bold px-8 py-4 rounded-xl shadow-xl transition-all">Share Your Testimony</button>
+                </div>
+
+                <div class="mb-8 flex items-center justify-between gap-4 flex-col sm:flex-row">
+                    <div class="w-full sm:w-1/2 relative">
+                        <input id="testimony-search" type="search" placeholder="Search testimonies by name or keyword" class="w-full px-4 py-3 rounded-xl border border-stoneBg-200 bg-white focus:ring-2 focus:ring-sage-500" oninput="filterTestimonies()">
+                        <i class="fa-solid fa-magnifying-glass absolute right-4 top-3 text-gray-400"></i>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                            <button onclick="openTestimonyModal()" class="px-5 py-2.5 rounded-xl bg-sage-500 text-midnight-950 font-semibold">Share Testimony</button>
+                        <button onclick="showToast('Thanks for exploring testimonies')" class="px-4 py-2 rounded-xl bg-white border border-stoneBg-200 text-gray-700">Explore</button>
+                    </div>
+                </div>
+
+                <div id="testimonies-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+
+                <!-- Testimony detail modal -->
+                        <div id="testimony-detail-modal" class="fixed inset-0 z-50 bg-black/70 hidden items-center justify-center p-4" aria-hidden="true" role="dialog" aria-modal="true">
+                    <div class="bg-white w-full max-w-3xl rounded-3xl p-8 sm:p-10 shadow-2xl relative border border-stoneBg-200">
+                        <button data-close onclick="closeTestimonyDetail()" class="absolute top-6 right-6 text-gray-400 hover:text-midnight-950 text-xl"><i class="fa-solid fa-xmark"></i></button>
+                        <div class="mb-4 text-sage-500 text-sm"><i class="fa-solid fa-quote-left text-3xl opacity-30"></i></div>
+                        <h3 id="detail-title" class="font-serif text-2xl font-bold text-midnight-900 mb-2">Title</h3>
+                        <div class="text-xs text-muted mb-4"><span id="detail-author">Author</span> • <span id="detail-date">Date</span></div>
+                        <div id="detail-content" class="text-gray-800 leading-relaxed mb-6">Full testimony content...</div>
+                        <div class="flex items-center space-x-3">
+                            <button onclick="whatsappShare(currentTestimonyId || 0)" class="px-3 py-2 rounded-xl bg-green-600 text-white">WhatsApp</button>
+                            <button onclick="telegramShare(currentTestimonyId || 0)" class="px-3 py-2 rounded-xl bg-blue-500 text-white">Telegram</button>
+                            <button onclick="facebookShare(currentTestimonyId || 0)" class="px-3 py-2 rounded-xl bg-blue-800 text-white">Facebook</button>
+                            <button onclick="instagramShare(currentTestimonyId || 0)" class="px-3 py-2 rounded-xl bg-pink-500 text-white">Instagram</button>
+                            <button onclick="copyTestimonyLink(currentTestimonyId || 0)" class="ml-auto px-4 py-2 rounded-xl bg-stoneBg-100 text-midnight-950">Copy Link</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating share actions -->
+    <div class="fixed bottom-6 left-6 z-40 space-y-3">
+        <button onclick="whatsappPageShare()" class="bg-green-600 text-white px-4 py-2 rounded-full shadow-md flex items-center space-x-2"><i class="fa-brands fa-whatsapp"></i><span class="text-xs">Share</span></button>
+        <button onclick="copyPageLink()" class="bg-white text-midnight-950 px-3 py-2 rounded-full shadow-sm border border-stoneBg-200"><i class="fa-solid fa-link"></i></button>
+    </div>
+
+    <div id="testimony-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-lg rounded-3xl p-8 sm:p-10 shadow-2xl relative border border-stoneBg-200">
+            <button onclick="closeTestimonyModal()" class="absolute top-6 right-6 text-gray-400 hover:text-midnight-950 text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="font-serif text-2xl font-bold text-midnight-950 mb-2">Share Your Testimony</h3>
+            <p class="text-gray-600 text-sm mb-6">Let the community rejoice with you as you declare what God has done.</p>
+            <form onsubmit="handleTestimonySubmit(event)" class="space-y-4">
+                <div><label class="block text-xs font-semibold uppercase tracking-wider text-gray-700 mb-1">Your Full Name</label><input id="test-name" type="text" required class="w-full px-4 py-3 bg-stoneBg-50 border border-stoneBg-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-sage-500" placeholder="e.g. Sister Deborah Vance"></div>
+                <div><label class="block text-xs font-semibold uppercase tracking-wider text-gray-700 mb-1">Testimony Title</label><input id="test-title" type="text" required class="w-full px-4 py-3 bg-stoneBg-50 border border-stoneBg-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-sage-500" placeholder="e.g. Miraculous Healing & Financial Provision"></div>
+                <div><label class="block text-xs font-semibold uppercase tracking-wider text-gray-700 mb-1">Your Story</label><textarea id="test-content" rows="4" required class="w-full px-4 py-3 bg-stoneBg-50 border border-stoneBg-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-sage-500" placeholder="Share testimony details..."></textarea></div>
+                <button type="submit" class="w-full bg-sage-500 hover:bg-sage-400 text-midnight-950 font-bold py-3.5 rounded-xl shadow transition-all">Publish Testimony</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="assets/js/app.js" defer></script>
+    <button id="back-to-top" aria-label="Back to top">↑</button>
+</body>
+</html>

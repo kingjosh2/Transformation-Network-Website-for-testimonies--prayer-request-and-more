@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home — Transformation Network</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        midnight: { 900: '#0b1329', 950: '#070c1b' },
+                        charcoal: {800: '#1e222d',900:'#141720'},
+                        sage: {300:'#bfead0',400:'#9bd5b5',500:'#6fc299',600:'#4aa47a'},
+                        stoneBg: {50:'#f9f9f8',100:'#f2f1ee',200:'#e4e2dd'}
+                    },
+                    fontFamily: { serif:['Playfair Display','serif'], sans:['Inter','sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="bg-stoneBg-50 text-charcoal-800 antialiased selection:bg-sage-500 selection:text-midnight-950">
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-white/10 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
+            <a href="home.html" class="flex items-center space-x-3.5 group">
+                <div class="w-11 h-11 rounded-full bg-gradient-to-tr from-sage-600 via-sage-500 to-sage-300 flex items-center justify-center text-midnight-950 font-serif font-bold text-xl shadow-xl">TN</div>
+                <div><span class="block font-serif text-lg tracking-wider font-bold text-white">TRANSFORMATION</span><span class="block text-[10px] uppercase tracking-[0.25em] text-sage-400">Network</span></div>
+            </a>
+            <nav class="hidden xl:flex items-center space-x-7 text-sm font-medium tracking-wide">
+                <a href="home.html" class="text-sage-400 transition-colors py-2">Home</a>
+                <a href="about.html" class="text-gray-300 hover:text-sage-400 transition-colors py-2">About Us</a>
+                <a href="sermons.html" class="text-gray-300 hover:text-sage-400 transition-colors py-2">Sermons</a>
+                <a href="testimonies.html" class="text-gray-300 hover:text-sage-400 transition-colors py-2">Testimonies</a>
+                <a href="prayer.html" class="text-gray-300 hover:text-sage-400 transition-colors py-2">Prayer Sanctuary</a>
+                <a href="events.html" class="text-gray-300 hover:text-sage-400 transition-colors py-2">Events</a>
+                <a href="contact.html" class="text-gray-300 hover:text-sage-400 transition-colors py-2">Contact</a>
+            </nav>
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="give.html" class="bg-gradient-to-r from-sage-500 to-sage-600 text-midnight-950 font-semibold px-6 py-2.5 rounded-full text-sm shadow-lg flex items-center space-x-2"><i class="fa-solid fa-heart-pulse"></i><span>Give / Partner</span></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <!-- Home content copied from index.html -->
+        <section class="">
+                <div class="relative bg-midnight-950 mature-hero min-h-[92vh] flex items-center justify-center overflow-hidden">
+                <div class="absolute inset-0 opacity-25 bg-[radial-gradient(#e5c572_1px,transparent_1px)] [background-size:32px_32px]"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-midnight-950 via-midnight-900/90 to-transparent"></div>
+                <div class="absolute -right-20 -bottom-20 w-[500px] h-[500px] bg-sage-500/10 rounded-full blur-3xl"></div>
+                <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mature-section-text">
+                    <div class="lg:col-span-7 space-y-8">
+                        <div class="inline-flex items-center space-x-2.5 bg-sage-500/10 border border-sage-500/30 px-4 py-2 rounded-full text-sage-300 text-xs font-semibold tracking-widest uppercase">
+                            <i class="fa-solid fa-dove text-sage-400"></i>
+                            <span>Welcome Home to Transformation Network</span>
+                        </div>
+                        <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1]">Renewing Minds, <span class="text-sage-400 italic">Transforming</span> Lives.</h1>
+                        <p class="mature-section-text text-lg sm:text-xl font-light leading-relaxed max-w-2xl">A distinguished community dedicated to encountering God’s presence, cultivating deep biblical foundations, and deploying believers into purposeful kingdom impact.</p>
+                        <div class="flex flex-wrap gap-4 pt-2">
+                            <a href="sermons.html" class="bg-sage-500 hover:bg-sage-400 text-midnight-950 font-bold px-8 py-4 rounded-xl shadow-xl transition-all flex items-center space-x-3"><i class="fa-solid fa-play"></i><span>Watch Latest Broadcast</span></a>
+                            <a href="about.html" class="border border-white/20 hover:border-sage-400/70 text-white font-medium px-8 py-4 rounded-xl transition-all hover:bg-white/5">Discover Our Vision</a>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-2xl relative">
+                        <div class="absolute -top-4 right-8 bg-sage-500 text-midnight-950 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-lg">Live Sanctuary & Online</div>
+                        <h3 class="font-serif text-2xl font-bold mb-6 mature-heading border-b border-white/10 pb-4">Gathering Times</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 rounded-2xl bg-sage-500/10 border border-sage-500/30 flex items-center justify-center text-sage-400 shrink-0"><i class="fa-solid fa-church text-lg"></i></div>
+                                <div><h4 class="font-semibold mature-section-text">Sunday Worship Experience</h4><p class="text-gray-400 text-sm mt-0.5">9:00 AM & 11:00 AM (Main Sanctuary)</p></div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 rounded-2xl bg-sage-500/10 border border-sage-500/30 flex items-center justify-center text-sage-400 shrink-0"><i class="fa-solid fa-book-open-reader text-lg"></i></div>
+                                <div><h4 class="font-semibold mature-section-text">Midweek Word & Prayer</h4><p class="text-gray-400 text-sm mt-0.5">Wednesday at 6:30 PM (Live Stream)</p></div>
+                            </div>
+                        </div>
+                        <div class="mt-8 pt-6 border-t border-white/10 text-center"><p class="text-[11px] text-gray-400 uppercase tracking-widest mb-1 font-semibold">Location</p><p class="text-sm font-medium text-white">120 Transformation Way, City Center</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/js/app.js" defer></script>
+    <button id="back-to-top" aria-label="Back to top">↑</button>
+</body>
+</html>
